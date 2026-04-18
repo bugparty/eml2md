@@ -1,0 +1,54 @@
+{
+  "name": "eml2md",
+  "version": "0.1.0",
+  "description": "Convert EML email files to cleaned Markdown.",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "bin": {
+    "eml2md": "dist/cli.js"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsup src/index.ts src/cli.ts --format esm --dts --clean",
+    "check": "tsc --noEmit",
+    "test": "npm run build && node --test tests/**/*.test.mjs",
+    "prepublishOnly": "npm run build",
+    "pack:check": "npm pack --dry-run"
+  },
+  "keywords": [
+    "eml",
+    "email",
+    "markdown",
+    "mailparser"
+  ],
+  "license": "UNLICENSED",
+  "dependencies": {
+    "cheerio": "^1.1.2",
+    "he": "^1.2.0",
+    "html-to-text": "^9.0.5",
+    "mailparser": "^3.8.0"
+  },
+  "devDependencies": {
+    "@types/he": "^1.2.3",
+    "@types/html-to-text": "^9.0.4",
+    "@types/mailparser": "^3.4.6",
+    "@types/node": "^24.7.2",
+    "tsup": "^8.5.0",
+    "typescript": "^5.9.3"
+  }
+}
