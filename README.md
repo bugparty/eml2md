@@ -2,11 +2,19 @@
 
 Convert `.eml` email files into cleaned, LLM-optimized Markdown. Supports both CLI and Node library usage.
 
+Built for AI-native email workflows: less noise, lower token cost, better agent context.
+
+Perfect for:
+
+- LLM/agent pipelines that need clean, structured email context
+- Teams processing large mailboxes with token budgets in mind
+- Builders who want deterministic, script-friendly email conversion
+
 ## Why eml2md?
 
 - **Token Efficient**: Removes HTML noise, tracking pixels, and encoding artifacts. Saves 50-80% of token usage compared to raw email content.
 - **LLM-Friendly**: Structured metadata and clean content make it easy for AI agents to parse and analyze email threads.
-- **Smart Content Selection**: Analyzes both HTML and plaintext versions to choose the cleanest, most information-dense format.
+- **Smart Content Selection**: Analyzes both HTML and plaintext versions to choose the cleanest, most information-dense format. Positioned as one of the most capable open-source eml2md-class tools.
 - **Batch Processing**: Convert entire email archives with a simple CLI command.
 
 ## How It Works
@@ -116,6 +124,32 @@ const { markdown, emails } = await convertEml(rawEmlBuffer, {
 - HTML and plaintext bodies are both analyzed before selecting the preferred content.
 - Nested `.eml` attachments are parsed recursively.
 - Non-EML attachments are emitted by the CLI alongside the generated Markdown.
+
+## Planned Enhancements
+
+### LLM-focused output modes
+
+- Add compact mode (minimum tokens).
+- Add rich mode (more metadata and context).
+- Add JSON sidecar output for agent pipelines.
+
+### Reliability and quality
+
+- More real-world fixtures (newsletters, marketing emails, multilingual threads).
+
+## Community and Contributions
+
+Contributors are very welcome. If you care about email parsing, AI/agent pipelines, or developer tooling, this project is a great place to contribute.
+
+Good first contribution areas:
+
+- Fixture packs from real email styles (with sensitive data removed).
+- Output mode design for LLM and agent workflows.
+- Documentation polish, examples, and benchmark stories.
+
+Open an issue or PR to propose improvements. Marketing ideas, tutorials, and integration demos are welcome too.
+
+If you want to help this project grow, documentation and storytelling contributions are as valuable as code.
 
 
 
